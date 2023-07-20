@@ -25,8 +25,8 @@ pipeline {
     }
     stage('Run tests against the container') {
       steps {
-        sh 'sleep 100'
-        sh 'curl -Li http://localhost:3000/param?query=demo | jq'
+        sh 'sleep 60'
+        sh 'curl http://localhost:3000/param?query=demo | jq'
       }
     }
   }
