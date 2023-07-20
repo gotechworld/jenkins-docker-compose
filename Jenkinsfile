@@ -19,13 +19,14 @@ pipeline {
     }
     stage('Start container') {
       steps {
-        sh 'docker-compose up -d --no-color --wait'
+        sh 'docker-compose up -d --no-color'
         sh 'docker-compose ps'
       }
     }
     stage('Run tests against the container') {
       steps {
-        sh 'curl http://localhost:3000/param?query=demo | jq'
+        sh 'sleep 100'
+        sh 'curl -Li http://localhost:3000/param?query=demo | jq'
       }
     }
   }
